@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+  </head>
+<body>
+
+
+ <div id = "tally" type>
+    <h3>Your Gold: {{session.gold}}</h3>
+  </div>
+
+ <div id="Farm">
+    <h2>Farm</h2>
+    <p>(earns 10-20 gold)</p>
+    <form class = button action="/process_money" method="post">
+      <input type="hidden" name="building" value="farm"/>
+      <input type="submit"  value="Find Gold!"/>
+    </form>
+  </div>
+  <div id="Cave">
+    <h2>Cave</h2>
+    <p>(earns 5-10 gold)</p>
+    <form class = "button" action="/process_money" method="post">
+      <input type="hidden" name="building" value="cave"/>
+      <input type="submit"  value="Find Gold!"/>
+    </form>
+  </div>
+  <div id="Home">
+    <h2>Home</h2>
+      <p>(earns 2-5 gold)</p>
+        <form class = "button" action ="/process_money" method="post">
+          <input type="hidden" name="building" value="home"/>
+          <input type="submit"  value="Find Gold!"/>
+        </form>
+  </div>
+  <div id="casino">
+      <h2>Casino</h2>
+      <p>(Can earn or lose up to 50 golds)</p>
+        <form  class = "button" action="/process_money" method="post">
+          <input type="hidden" name="building" value="casino"/>
+          <input type="submit"  value="Find Gold!"/>
+        </form>
+  </div>
+
+   <center>
+      <h3>Activities</h3>
+          <div id="activity" >
+              <h1>Activity:</h1>
+                <div id="activitydisp" height: "200px" width: "600px"  margin-left: "100px" >
+                    <ul>
+                        {%if length > 0%}
+                            {%for i in range(0, length)%}
+                                <li class="none">{{ activity[i] }}</li>
+                            {%endfor%}
+                        {%endif%}
+                    </ul>
+                </div>
+          </div>
+      </center>
+      <form action='/reset'>
+      <input type="submit" name="" value="reset">
+      </form>
+  </body>
+</html>
